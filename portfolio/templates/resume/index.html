@@ -1,0 +1,124 @@
+{% load static%}
+<!DOCTYPE html>
+
+<html>
+<title>{{title}}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="w3-white w3-text-grey w3-card-4">
+        <!-- <div class="w3-display-container"> -->
+        <div class="w3-display-container">
+          <img src="{%static 'resume/files/foto.jpg'%}" style="width:50%">
+          <div class="w3-display-right w3-container w3-text-black">
+            <h2>{{name}}</h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{occupation}}</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{address}}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{email}}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{telephone}}</p>
+          <hr>
+<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+{%for bubu in a%}
+          <p>{{bubu.name}}</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:{{bubu.point}}%">{{bubu.point}}%</div>
+          </div>
+{%endfor%}
+<hr>
+<p class="w3-large w3-text-theme"><b><i class="fa fa-spinner fa-pulse w3-margin-right w3-text-teal"></i>Summary</b></p>
+<p>{{summary}}</p>
+<hr>
+
+<p class="w3-large"><b><i class="fa fa-align-justify fa-fw w3-margin-right w3-text-teal"></i>Certification</b></p>
+{%for bubu in b%}
+<h3>{{bubu.location}}</h3>
+          <p><a href="{{bubu.url}}" target=”_blank”>{{bubu.name}}</a></p>
+{%endfor%}
+
+
+
+
+
+
+
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+
+<!-- <span class="w3-tag w3-teal w3-round">Current</span> -->
+{%for bubu in c%}
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>{{bubu.position}}</b></h5>
+          <h5 class="w3-opacity"><b><a href="{{bubu.url}}" target=”_blank”>{{bubu.location}}</a></b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{bubu.start_work}} - {{bubu.end_work}}</h6>
+          <p>{{bubu.description}}</p>
+          <hr>
+        </div>
+{%endfor%}
+
+</div>
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+
+{%for bubu in d%}
+<div class="w3-container">
+          <h5 class="w3-opacity"><b>{{bubu.location}}</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{bubu.start_year}} - {{bubu.end_year}}</h6>
+          <p>{{bubu.degree}}</p>
+
+        </div>
+      {%endfor%}
+
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+
+  <a href="https://github.com/Zodiark619?tab=repositories"><i class="fa fa-github w3-hover-opacity"></i></a>
+  <a href="https://www.linkedin.com/in/herry-wijaya-78b7a5216/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+
+
+  <p>This resume webpage is developed using Django and deployed on pythonanywhere.com</p>
+  <p>Check my other portfolios on my github repository</p>
+</footer>
+
+</body>
+</html>
